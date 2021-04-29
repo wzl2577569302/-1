@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>feishu close</title>
+
+		<script type="text/javascript" src="https://s3.bytecdn.cn/ee/lark/js_sdk/h5-js-sdk-1.4.13.js"> </script>
+
+	</head>
+	<body >
+
+		<script type="text/javascript">
+
+			window.onload=function(){
+				feishuCloseWindow();
+			}
+
+			function feishuCloseWindow(){
+				var autoClose = 0;
+				var indervalClose = setInterval(function(){
+
+					if(autoClose >= 100){//等待10秒后还未关闭，则放弃尝试关闭
+						alert("当前不是飞书环境，请手动关闭页面！");
+						clearInterval(indervalClose);
+						return;
+					}
+
+					if (window.h5sdk &&window.h5sdk.biz && window.h5sdk.biz.util) {//如果是飞书环境，直接关闭当前页面
+						clearInterval(indervalClose);
+						window.h5sdk.biz.navigation.close({});//调用飞书接口关闭当前页面
+					}else{
+						console.log("当前不是飞书环境，请手动关闭页面！")
+					}
+					autoClose += 1;
+				}, 100);
+			}
+
+		</script>
+	</body>
+</html>

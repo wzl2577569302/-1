@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	    <meta name="format-detection" content="telephone=no" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	</head>
+	<body>
+
+		<p>
+			<a href="closetest2.html">链接打开</a>
+		</p>
+
+		<p>
+			<a href="javascript:void(0)" id="test1">js当前页面打开窗口</a>
+		</p>
+
+		<p>
+			<a href="javascript:void(0)" id="test2">js当前页面打开窗口</a>
+		</p>
+		
+		<script type="text/javascript">
+			$("#test1").click(function(){
+				location.href = "closetest2.html";
+			})
+
+			$("#test2").click(function(){
+				window.open("closetest2.html");
+			})
+		</script>
+	</body>
+</html>
